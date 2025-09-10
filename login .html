@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | H2</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --primary: #333;
+      --accent: #ffd700;
+      --bg: #f4f4f4;
+      --text: #222;
+      --light-text: #555;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--primary);
+      padding: 12px 30px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar img {
+      height: 40px;
+    }
+
+    .menu-icon {
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 250px;
+      height: 100%;
+      background-color: var(--primary);
+      padding: 60px 20px;
+      transition: 0.4s;
+      z-index: 999;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      padding: 15px 0;
+      border-bottom: 1px solid #444;
+    }
+
+    .sidebar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .sidebar .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 26px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Login Section */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      padding: 20px;
+    }
+
+    .login-box {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-box img {
+      height: 60px;
+      margin-bottom: 20px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .login-box input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 6px rgba(255,215,0,0.4);
+    }
+
+    .btn {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      margin-top: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: var(--primary);
+    }
+
+    .login-box p {
+      margin-top: 15px;
+      font-size: 14px;
+      color: var(--light-text);
+    }
+
+    .login-box a {
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .login-box a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <img src="removedlogo.png" alt="Logo" />
+    <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="service.html">Our Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+    </ul>
+  </div>
+
+  <!-- Login Section -->
+  <div class="login-container">
+    <div class="login-box">
+      <!-- Logo -->
+      <img src="removedlogo.png" alt="H2 Logo" />
+
+      <form onsubmit="handleLogin(event)">
+        <input type="email" placeholder="Enter Email" required />
+        <input type="password" placeholder="Enter Password" required />
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <p>Don’t have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.style.right = sidebar.style.right === '0px' ? '-260px' : '0px';
+    }
+
+    function handleLogin(event) {
+      event.preventDefault(); // prevent form refresh
+      alert("Login successful! Redirecting to Home...");
+      window.location.href = "index.html"; // redirect to homepage
+    }
+  </script>
+</body>
+</html>
